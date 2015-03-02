@@ -8,10 +8,11 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     # example owned stuff link: snippets =
     #  serializers.HyperlinkedRelatedField(many=True,
     #                                      view_name='snippet-detail')
-    characters = serializers.HyperlinkedRelatedField(many=True,
-            view_name='character-detail',
-            queryset=Character.objects.all())
+    characters = serializers.HyperlinkedRelatedField(
+        many=True,
+        view_name='character-detail',
+        queryset=Character.objects.all())
 
     class Meta:
         model = User
-        fields = ('url', 'username')
+        fields = ('url', 'username', 'characters')
